@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .navbar-text {
+    @apply font-poppins text-white hover:text-fontColor transition-all duration-300 ease-linear
+  }
+  .navbar-icon{
+    @apply h-10 w-10 mr-4 text-slate-300 transition-all ease-linear duration-300
+  }
+  .hover-text{
+    @apply stroke-fontColor rounded-lg h-10 w-10 bg-gray-700
+              transition-all duration-300 ease-linear scale-125
+  }
+  .calendar-num-style {
+    @apply h-7 w-12 font-poppins text-lg flex justify-center text-fontColor cursor-pointer       
+  }
+  .calendar-num-style-today{
+    @apply bg-fontColor border-2 border-primary text-white rounded-xl text-lg flex justify-center w-full font-poppins
+            hover:scale-110 hover:bg-opacity-60 hover:text-white transition-all scale-110 font-semibold
+            duration-100 ease-in-out
+  }
+  .calendar-hover-glow{
+    @apply hover:bg-slate-800 rounded-t-xl hover:text-fontColor hover:scale-110 
+             hover:rounded-xl transition-all duration-300 ease-in-out cursor-pointer
+  }
+  .sign-up-text {
+    @apply font-poppins text-fontColor font-medium
+  }
+  .request-text {
+    @apply font-poppins text-fontColor text-xl font-medium
+  }
+  .sign-up-input {
+    @apply font-poppins w-[260px] h-9 bg-fontColor text-white
+           rounded-md outline-fontColor focus:bg-slate-500
+          hover:bg-slate-500 hover:text-white hover:bg-opacity-40
+         focus:text-white transition-all duration-300 ease-in-out
+         focus:bg-opacity-5
+  }
+  .sign-up-input-tab {
+    @apply font-poppins w-[260px] h-9 bg-fontColor bg-opacity-20 text-white
+           rounded-md outline-fontColor focus:bg-slate-500
+          hover:bg-slate-500 hover:text-white hover:bg-opacity-40
+         focus:text-white transition-all duration-300 ease-in-out
+         focus:bg-opacity-5
+  }
+  .request-input-tab {
+    @apply font-poppins w-[460px] h-9 bg-fontColor bg-opacity-20 text-white
+           rounded-md outline-fontColor focus:bg-slate-500
+          hover:bg-slate-500 hover:text-white hover:bg-opacity-40
+         focus:text-white transition-all duration-300 ease-in-out
+         focus:bg-opacity-5
+  }
+  .sign-up-input-tab-1 {
+    @apply font-poppins w-[260px] h-9 bg-fontColor bg-opacity-40 text-white
+           rounded-md outline-fontColor focus:bg-slate-500
+          hover:bg-slate-500 hover:text-white hover:bg-opacity-40
+         focus:text-white transition-all duration-300 ease-in-out
+         focus:bg-opacity-5
+  }
+  .hover-text-landing{
+    @apply text-fontColor text-2xl font-poppins rounded-xl
+          bg-gray-700 -translate-y-3 scale-110
+            transition-all ease-in-out duration-300
+  }
+  .normal-text-landing{
+    @apply text-white text-2xl font-poppins
+             transition-all duration-300 ease-linear
+  }
+  .hover-icon-landing{
+    @apply   rounded-full h-14 w-14 bg-gray-700 
+             -translate-y-3 scale-110 stroke-fontColor
+             transition-all duration-300 ease-linear
+  }
+  .normal-icon-landing{
+    @apply bg-navbar rounded-full h-14 w-14 stroke-slate-300  
+            transition-all duration-300 ease-linear
+  }
+  .toggleOn{
+    @apply flex transition-all duration-300 ease-linear
+  }
+  .toggleOff{
+    @apply hidden transition-all duration-300 ease-linear
+  }
+
+  .sidebar {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  
+  @-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+      border-radius: 100vh;
+      background: #121212;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+      background: #0A0A0A;
+      border-radius: 100vh;
+      border: 3px solid #00CCCB;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+  }
+
+}
+.textOver {
+  overflow: hidden;
+  font-size: 0px;
+}
+.grid-rows-7 {
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+}
+.grid-col-7 {
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+}
+.over-flow{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
