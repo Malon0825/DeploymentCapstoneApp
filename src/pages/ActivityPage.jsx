@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../components'
+import { Navbar, Welcome } from '../components'
 import { useEffect, useState } from 'react'
 import { getFirestore, getDoc, doc } from 'firebase/firestore'
 
@@ -32,80 +32,90 @@ const ActivityPage = () => {
   return (
 
     
-    <div className="relative flex w-full h-full bg-primary scroll-auto">
+    <div className="relative flex md:flex-row flex-col w-full h-full bg-primary">
 
 
-        <aside className="h-screen sticky top-0">
-              <Navbar />
-        </aside>
+    <aside className="md:flex hidden h-screen sticky top-0">
+          <Navbar />
+    </aside>
 
-        <div className="flex w-screen bg-primary">
-          
-          <div className="m-20">
-              <h1 className="text-fontColor text-4xl font-poppins font-semibold
-                                    transition-all duration-300 cursor-pointer
+    <aside className="md:hidden flex sticky top-0 z-10 bg-primary">
+          <Welcome />
+    </aside>
+    
+
+    <div className="w-full">
+      
+      <div className="sm:mt-20 flex flex-col gap-10 ">
+
+          <div className="w-full">
+
+              <h1 className="text-fontColor sm:text-4xl text-xl font-poppins sm:font-semibold
+                                    transition-all duration-300 cursor-pointer xs:text-center xs:m-0 ml-10
                                   hover:text-slate-300 ease-in-out">
                 Barangay Halloween Activity
-              </h1>
-
-              <ul className="relative top-10 grid grid-cols-2 gid-rows-6 xl:grid-cols-3 
-                              xl:grid-rows-4 gap-14 left-10">
-
-                {activities ?.map((act, index) => (
-                  
-                    <li key={index}>
-
-                              <div className="relative w-[400px] h-[173px] bg-slate-700 
-                                            bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
-
-                                        <div className="flex relative rounded-lg h-[150px]
-                                                        overflow-hidden w-[150px] ml-3">
-
-                                            <div className="relative h-full w-full bg-navbar flex items-center justify-center flex-col">
-
-                                                <div className="absolute h-5 w-5 rounded-full bg-slate-700 bg-opacity-25 top-3 left-3"></div>
-                                                <div className="absolute h-5 w-5 rounded-full bg-slate-700 bg-opacity-25 top-3 right-3"></div>
-
-                                                <h1 className="font-poppins text-4xl font-bold text-fontColor">
-                                                  Day
-                                                </h1>
-
-                                                <h1 className="font-poppins text-5xl font-bold text-fontColor">
-                                                  {act.day}
-                                                </h1>
-                                            </div>
-
-                                        </div>
-
-                                        <div className="relative flex flex-col left-2">
-
-                                          <div className="relative flex flex-row gap-2 items-center">
-
-                                            <h1 className="font-poppins text-fontColor text-xl">
-                                              {act.title}
-                                            </h1>    
-                                            <h1 className="font-poppins text-white text-normal">
-                                            {"("}{act.date}{")"}
-                                            </h1>                            
-                                          </div>
-                                          <p className="text-white font-poppins top-2">
-                                            {act.content}
-                                          </p>
-                                        </div>
-
-                            </div>
-
-                    </li>
-                ))}                
-
-                    
-
-                
-              </ul>
+              </h1>              
           </div>
-        </div>
 
-  </div>
+
+
+          <ul className="relative lg:m-20 grid lg:grid-cols-2 sm:gid-rows-6 xl:grid-cols-3
+                          xl:grid-rows-4 md:gap-14 gap-4 justify-center">
+
+            {activities ?.map((act, index) => (
+              
+                <li key={index}>
+
+                          <div className="relative sm:w-[400px] sm:h-[173px] w-[310px] h-[173px] bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
+
+                                    <div className="flex relative rounded-lg h-[150px]
+                                                    overflow-hidden w-[150px] ml-3">
+
+                                        <div className="relative sm:h-[200px] sm:w-[200px] h-[150px] w-[150px] bg-navbar flex justify-center text-center flex-col">
+
+                                            <div className="absolute h-5 w-5 rounded-full bg-slate-700 bg-opacity-25 top-3 left-3"></div>
+                                            <div className="absolute h-5 w-5 rounded-full bg-slate-700 bg-opacity-25 top-3 right-3"></div>
+
+                                            <h1 className="font-poppins text-4xl font-bold text-fontColor">
+                                              Day
+                                            </h1>
+
+                                            <h1 className="font-poppins text-5xl font-bold text-fontColor">
+                                              {act.day}
+                                            </h1>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="relative flex flex-col ml-2 h-40 sm:w-56 w-32 items-center justify-center">
+
+                                      <div className="relative flex flex-row gap-2 items-center">
+
+                                        <h1 className="font-poppins text-fontColor text-xl">
+                                          {act.title}
+                                        </h1>    
+                                        <h1 className="font-poppins text-white text-normal">
+                                        {"("}{act.date}{")"}
+                                        </h1>                            
+                                      </div>
+                                      <p className="text-white font-poppins top-2 text-center">
+                                        {act.content}
+                                      </p>
+                                    </div>
+
+                        </div>
+
+                </li>
+            ))}                
+
+        </ul>
+
+      </div>
+
+    </div>
+
+</div>
   )
 }
 

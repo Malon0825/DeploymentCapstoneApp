@@ -1,9 +1,12 @@
 {
+  "homepage": "https://malon0825.github.io/DeploymentCapstoneApp/",
   "name": "capstone_app_deploy",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -21,6 +24,7 @@
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",
     "vite": "^3.2.3"

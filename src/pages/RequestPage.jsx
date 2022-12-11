@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { clearance } from '../assets'
-import { Navbar } from '../components'
+import { Navbar, Welcome } from '../components'
 import emailjs from '@emailjs/browser'
 import dayjs from "dayjs"
 import { useAuth } from '../context/AuthContext'
-import { getFirestore, getDoc, doc, query, where, collection, onSnapshot, setDoc, updateDoc, arrayUnion } from 'firebase/firestore'
+import { getFirestore, getDoc, doc, query, where, collection, onSnapshot, updateDoc, arrayUnion } from 'firebase/firestore'
 
 const RequestPage = () => {
 
@@ -240,11 +240,15 @@ const RequestPage = () => {
 
   return (
 
-    <div className="relative flex w-full h-screen bg-primary scroll-auto">
+    <div className="relative flex md:flex-row flex-col w-full h-full bg-primary">
 
 
-        <aside className="h-screen sticky top-0">
+        <aside className="md:flex hidden h-screen sticky top-0">
               <Navbar />
+        </aside>
+
+        <aside className="md:hidden w-full sticky top-0 z-10 bg-primary">
+              <Welcome />
         </aside>
 
         <div className={`${toggleMessage ? 'flex' : 'hidden'} absolute w-full h-full z-10 items-center justify-center
@@ -356,32 +360,33 @@ const RequestPage = () => {
 
           </form>
 
-          <div className="relative m-20 w-full">
+          <div className="relative flex flex-col sm:gap-20 sm:margin m-10 w-full overflow-hidden">
 
-              <h1 className="text-fontColor text-4xl font-poppins font-semibold
-                                    transition-all duration-300 cursor-pointer
+              <h1 className="text-fontColor sm:text-4xl text-xl font-poppins sm:font-semibold
+                                    transition-all duration-300 cursor-pointer md:text-center
                                   hover:text-slate-300 ease-in-out">
                   Choose the document
               </h1>
 
-              <div className="relative flex justify-center">
+              <div className="relative flex justify-center flex-col items-center">
 
-                  <div className="relative top-20 grid grid-cols-2 grid-rows-2 gap-14">
+                  <div className="relative m-10 grid lg:grid-cols-2 lg:grid-rows-2 sm:gap-14 gap-6">
 
-                    <div className="relative flex flex-col gap-8">
+                    <div className="relative flex flex-col gap-8 items-center sm:items-start">
 
-                        <h1 className="text-white text-xl font-poppins
+                        <h1 className="text-white sm:text-xl font-poppins
                                       transition-all duration-3000 cursor-pointer
                                     hover:text-fontColor ease-in-out">
                           Barangay Clearance
                         </h1>
-                        <div className="relative w-[500px] h-[173px] bg-slate-700 
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+
+                        <div className="relative lg:w-[400px] xl:w-[500px] sm:w-[500px] w-72 sm:h-[173px] h-36 bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
 
 
 
-                              <div className="flex relative rounded-lg h-[150px] left-3
-                                              overflow-hidden w-[200px]">
+                              <div className="flex relative rounded-lg sm:h-[150px] h-[120px] left-3
+                                              overflow-hidden sm:w-[200px] w-36">
 
                                   <img src={clearance} alt="Barangay Clearance Photo" 
                                   className="flex absolute w-full h-full hover:scale-125 
@@ -390,8 +395,8 @@ const RequestPage = () => {
 
                               </div>
 
-                              <button className="text-white bg-fontColor font-poppins h-20 w-40 rounded-2xl
-                                                hover:bg-slate-700 hover:text-fontColor transition-all ml-16
+                              <button className="relative text-white bg-fontColor font-poppins sm:h-20 h-28 sm:w-40 w-28 rounded-2xl
+                                                hover:bg-slate-700 hover:text-fontColor transition-all xl:ml-16 lg:ml-6 sm:ml-20 ml-5
                                                 text-xl font-semibold only:duration-300 ease-in-out"
                                       onClick={() => setToggleClear(true)}>
                                                   Request
@@ -401,101 +406,112 @@ const RequestPage = () => {
                         </div>              
                     </div>
 
-                    <div className="relative flex flex-col gap-8">
+                    <div className="relative flex flex-col gap-8 items-center sm:items-start">
 
-                        <h1 className="text-white text-xl font-poppins
+                        <h1 className="text-white sm:text-xl font-poppins
                                       transition-all duration-3000 cursor-pointer
                                     hover:text-fontColor ease-in-out">
-                          Barangay Cedula
+                          Barangay Clearance
                         </h1>
-                        <div className="relative w-[500px] h-[173px] bg-slate-700 
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+
+                        <div className="relative lg:w-[400px] xl:w-[500px] sm:w-[500px] w-72 sm:h-[173px] h-36 bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
 
 
 
-                              <div className="flex relative rounded-lg h-[150px] left-3
-                                              overflow-hidden w-[200px]">
+                              <div className="flex relative rounded-lg sm:h-[150px] h-[120px] left-3
+                                              overflow-hidden sm:w-[200px] w-36">
 
                                   <img src={clearance} alt="Barangay Clearance Photo" 
                                   className="flex absolute w-full h-full hover:scale-125 
-                                  transition-all duration-500 ease-in-out 
+                                  transition-all duration-500 ease-in-out
                                   cursor-pointer"/>
 
                               </div>
 
-                              <button className="text-white bg-fontColor font-poppins h-20 w-40 rounded-2xl
-                                                hover:bg-slate-700 hover:text-fontColor transition-all ml-16
-                                                  text-xl font-semibold only:duration-300 ease-in-out">
+                              <button className="relative text-white bg-fontColor font-poppins sm:h-20 h-28 sm:w-40 w-28 rounded-2xl
+                                                hover:bg-slate-700 hover:text-fontColor transition-all xl:ml-16 lg:ml-6 sm:ml-20 ml-5
+                                                text-xl font-semibold only:duration-300 ease-in-out"
+                                      onClick={() => setToggleClear(true)}>
                                                   Request
 
                               </button>
 
                         </div>              
-                    </div>  
+                    </div>
 
-                    <div className="relative flex flex-col gap-8">
 
-                        <h1 className="text-white text-xl font-poppins
+                    <div className="relative flex flex-col gap-8 items-center sm:items-start">
+
+                        <h1 className="text-white sm:text-xl font-poppins
                                       transition-all duration-3000 cursor-pointer
                                     hover:text-fontColor ease-in-out">
-                          Barangay Residency
+                          Barangay Clearance
                         </h1>
-                        <div className="relative w-[500px] h-[173px] bg-slate-700 
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+
+                        <div className="relative lg:w-[400px] xl:w-[500px] sm:w-[500px] w-72 sm:h-[173px] h-36 bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
 
 
 
-                              <div className="flex relative rounded-lg h-[150px] left-3
-                                              overflow-hidden w-[200px]">
+                              <div className="flex relative rounded-lg sm:h-[150px] h-[120px] left-3
+                                              overflow-hidden sm:w-[200px] w-36">
 
                                   <img src={clearance} alt="Barangay Clearance Photo" 
                                   className="flex absolute w-full h-full hover:scale-125 
-                                  transition-all duration-500 ease-in-out 
+                                  transition-all duration-500 ease-in-out
                                   cursor-pointer"/>
 
                               </div>
 
-                              <button className="text-white bg-fontColor font-poppins h-20 w-40 rounded-2xl
-                                                hover:bg-slate-700 hover:text-fontColor transition-all ml-16
-                                                text-xl font-semibold only:duration-300 ease-in-out">
+                              <button className="relative text-white bg-fontColor font-poppins sm:h-20 h-28 sm:w-40 w-28 rounded-2xl
+                                                hover:bg-slate-700 hover:text-fontColor transition-all xl:ml-16 lg:ml-6 sm:ml-20 ml-5
+                                                text-xl font-semibold only:duration-300 ease-in-out"
+                                      onClick={() => setToggleClear(true)}>
                                                   Request
 
                               </button>
 
                         </div>              
-                    </div>  
+                    </div>
 
-                    <div className="relative flex flex-col gap-8">
+                    <div className="relative flex flex-col gap-8 items-center sm:items-start">
 
-                        <h1 className="text-white text-xl font-poppins
+                        <h1 className="text-white sm:text-xl font-poppins
                                       transition-all duration-3000 cursor-pointer
                                     hover:text-fontColor ease-in-out">
-                          Barangay Certificate
+                          Barangay Clearance
                         </h1>
-                        <div className="relative w-[500px] h-[173px] bg-slate-700 
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+
+                        <div className="relative lg:w-[400px] xl:w-[500px] sm:w-[500px] w-72 sm:h-[173px] h-36 bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
 
 
 
-                              <div className="flex relative rounded-lg h-[150px] left-3
-                                              overflow-hidden w-[200px]">
+                              <div className="flex relative rounded-lg sm:h-[150px] h-[120px] left-3
+                                              overflow-hidden sm:w-[200px] w-36">
 
                                   <img src={clearance} alt="Barangay Clearance Photo" 
                                   className="flex absolute w-full h-full hover:scale-125 
-                                  transition-all duration-500 ease-in-out 
+                                  transition-all duration-500 ease-in-out
                                   cursor-pointer"/>
 
                               </div>
 
-                              <button className="text-white bg-fontColor font-poppins h-20 w-40 rounded-2xl
-                                                hover:bg-slate-700 hover:text-fontColor transition-all ml-16
-                                                text-xl font-semibold only:duration-300 ease-in-out">
+                              <button className="relative text-white bg-fontColor font-poppins sm:h-20 h-28 sm:w-40 w-28 rounded-2xl
+                                                hover:bg-slate-700 hover:text-fontColor transition-all xl:ml-16 lg:ml-6 sm:ml-20 ml-5
+                                                text-xl font-semibold only:duration-300 ease-in-out"
+                                      onClick={() => setToggleClear(true)}>
                                                   Request
 
                               </button>
 
                         </div>              
-                    </div>         
+                    </div>
+                    
+
+
+                   
 
                   </div>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { logo } from '../assets'
 import { useAuth } from '../context/AuthContext';
-import { sign_up_bg } from '../assets'
+
 
 const Navbar = () => {
   const [hover, setHover] = useState(false);
@@ -10,7 +10,6 @@ const Navbar = () => {
   const [hover_Act, setAct] = useState(false);
   const [hover_Tour, setTour] = useState(false);
   const [hover_Log, setLog] = useState(false);
-  const [error, setError] = useState("")
   const { logout } = useAuth()
   let navigate = useNavigate()
 
@@ -21,7 +20,6 @@ const Navbar = () => {
       await logout()
       navigate("/")
     }catch {
-      setError('Failed to log out')
     }
   }
   
@@ -29,7 +27,7 @@ const Navbar = () => {
 
 
 
-          <div className="relative hidden h-screen w-[250px] lg:flex flex-col gap-10  
+          <div className="relative hidden h-screen w-[250px] md:flex flex-col gap-10  
                           items-center bg-navbar">
 
                     <div className="flex">

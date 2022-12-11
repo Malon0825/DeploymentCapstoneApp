@@ -7,45 +7,48 @@ const App = () => {
   return (
 
 
-                  <div className="relative flex w-full h-[1060px] bg-primary">
+      <div className="relative flex w-full bg-primary">
 
 
-                        <aside className="h-screen sticky top-0">
-                              <Navbar />
-                        </aside>
+            <aside className="h-screen sticky top-0">
+                  <Navbar />
+            </aside>
 
-                        <div className="flex flex-col w-full gap-12 bg-blue-">
+            <div className="flex w-full flex-col overflow-hidden">
 
-                        <div>
-                              <Welcome />
-                        </div>
+                  <aside className="w-full sticky top-0 z-10 bg-primary">
+                        <Welcome />
+                  </aside>
 
-                        <div>
-                              <div className="flex flex-row w-full">
-                                    <div>
-                                          <Request />
-                                    </div>
-                                    <div className="">
-                                          <Activity />
-                                    </div>
+
+                  <div className='relative w-full bg-primary flex flex-col'>
+
+                        <div className="flex lg:flex-row flex-col md:gap-0 gap-0 justify-center xl:justify-evenly w-full">
+                              <div>
+                                    <Request />
                               </div>
-
-                              <div className="flex flex-row">
-                                    <div>
-                                          <Tour />
-                                    </div>
-                                    <div>
-                                          <History />
-                                    </div>
+                              <div className="">
+                                    <Activity/>
                               </div>
                         </div>
-
+            
+                        <div className="flex sm:flex-row flex-col xl:gap-14 gap-0 justify-center w-full">
+                              <div>
+                                    <Tour />
+                              </div>
+                              <div>
+                                    <History />
+                              </div>
                         </div>
-
-
-
-
                   </div>
+
+             </div>
+
+
+
+
+      </div>
+
 
 
 

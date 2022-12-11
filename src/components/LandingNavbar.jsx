@@ -16,7 +16,7 @@ const LandingNavbar = () => {
 
 
 
-          <div className="relative hidden h-screen w-[250px] lg:flex flex-col gap-10  
+          <div className="relative hidden h-screen w-[250px] md:flex flex-col gap-10  
                           items-center bg-navbar">
 
 

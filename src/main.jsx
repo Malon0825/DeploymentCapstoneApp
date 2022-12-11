@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute'
 import LandingPage from './LandingPage'
 import LandingActivities from './components/LandingActivities'
 import LandingTour from './components/LandingTour'
+import LoginPage from './pages/LoginPage'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,6 +29,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Switch>
 
                   <Route path="/" element={<LandingPage />} />
+
+                  <Route path="/login" element={<LoginPage />} />
 
                   <Route path="/signup" element={<Signup />} /> 
 

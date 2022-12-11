@@ -17,45 +17,46 @@ const Activity = () => {
 
   return (
 
-    <div className="relative flex flex-col h-[385px] w-full">
+    <div className="relative w-full">
 
-      <div className="mt-2">
-          <a className="text-white text-2xl font-poppins
+      <div className="md:mt-0 mt-6 sm:ml-20 sm:mr-20 lg:ml-10 lg:mr-10 mr-10 ml-10 flex flex-col sm:gap-0 gap-6 relative xl:items-start items-end">
+
+          <a className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
                                 transition-all duration-3000
                               hover:text-fontColor ease-in-out"
               href='/activity'>
             Activities
           </a>
 
-          <div className="bg-gray-700 bg-opacity-25 flex flex-col h-[305px] w-[26vw] mt-8 rounded-2xl">
+          <div className="bg-gray-700 bg-opacity-25 flex flex-col h-[305px] sm:w-[550px] lg:w-[400px] xl:w-[600px] w-full sm:mt-8 rounded-2xl">
 
 
 
-            <div className="relative mt-6 ml-6 flex flex-row items-start w-[25vw]">
+            <div className="relative sm:mt-6 mt-8 flex items-start w-full">
 
-                <h1 className="text-white text-xl font-poppins hover:scale-110
+                <h1 className="text-white sm:text-xl font-poppins hover:scale-110 ml-6
                                             hover:text-fontColor transition-all duration-300
                                               ease-linear">
                     {months[today.month()]}, {today.year()}
                 </h1>
      
-                <div className="absolute right-6 flex flex-row items-start gap-3 shrink-0">
+                <div className="absolute right-6 flex flex-row gap-3">
 
 
-                      <button className="text-white text-xl font-poppins hover:scale-150
+                      <button className="text-white sm:text-xl font-poppins sm:hover:scale-150
                                            transition-all duration-300 ease-in-out"
                               onClick={() => {setToday(today.month(today.month() - 1))}}>
                         &lt;
                       </button>     
 
-                      <button className="flex shrink-0 text-fontColor font-poppins text-xl
-                                      hover:bg-slate-700 rounded-lg 
+                      <button className="flex text-fontColor font-poppins sm:text-xl
+                                      sm:hover:bg-slate-700 rounded-lg 
                                       transition-all ease-in-out duration-300"
                               onClick={() => {setToday(currentDate)}}>
                                       Today
                       </button>
 
-                      <button className="text-white text-xl font-poppins hover:scale-150 
+                      <button className="text-white sm:text-xl font-poppins sm:hover:scale-150 
                                             transition-all duration-300 ease-in-out"
                               onClick={() => {setToday(today.month(today.month() + 1))}}>
                         &gt;
@@ -71,7 +72,7 @@ const Activity = () => {
 
                         {days.map((day, index) => {
                           
-                          return <h1 className="flex justify-center font-poppins text-fontColor text-lg" 
+                          return <h1 className="flex justify-center font-poppins text-fontColor sm:text-lg" 
                                      key={index}>
                                       {day}
                                  </h1>

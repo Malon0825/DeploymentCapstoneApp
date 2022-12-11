@@ -1,116 +1,136 @@
 import React from 'react'
 import { tour1, tour2, tour3, tour } from '../assets'
-import { LandingNavbar } from '../components'
+import { LandingNavbar, LandingWelcomePage } from '../components'
 
 const LandingTour = () => {
   return (
 
-    <div className="relative flex w-full xl:h-[1050px] h-[1600px] bg-primary scroll-auto">
+    <div className="relative flex md:flex-row flex-col w-full bg-primary">
 
 
-          <aside className="h-screen sticky top-0">
+          <aside className="md:flex hidden h-screen sticky top-0">
                 <LandingNavbar />
           </aside>
 
-          <div className="flex w-screen">
+          <aside className="md:hidden flex sticky top-0 z-10 bg-primary">
+                <LandingWelcomePage />
+          </aside>
+          
+
+          <div className="flex flex-col w-full md:mt-20 gap-10">
                 
-                <div className="m-20">
-                    <h1 className="text-fontColor text-4xl font-poppins font-semibold
-                                    transition-all duration-300 cursor-pointer
-                                  hover:text-slate-300 ease-in-out">
-                      Welcome to Barangay Esperanza
-                    </h1>
 
-                    <div className="relative top-20 grid grid-cols-2 grid-rows-2 gap-14 left-10 cursor-pointer">
+                    <div className="w-full">
 
-                        <div className="relative xl:w-[600px] xl:h-[300px] bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+                        <h1 className="text-fontColor sm:text-4xl text-xl font-poppins sm:font-semibold
+                                              transition-all duration-300 cursor-pointer xs:text-center xs:m-0 ml-10
+                                            hover:text-slate-300 ease-in-out">
+                          Barangay Halloween Activity
+                        </h1>              
+                    </div>
 
-                                  <div className="h-[280px] overflow-hidden w-[300px] shrink-0
-                                                  rounded-xl m-2">
+                    <div className="relative md:mt-20 grid lg:grid-cols-2 lg:grid-rows-2 gap-14 cursor-pointer xl:ml-28 justify-center lg:m-10">
 
-                                    <img src={tour1} alt="" 
-                                      className="flex w-full h-full hover:scale-125 
-                                      transition-all duration-500 ease-in-out 
-                                      cursor-pointer"/>
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center">
+
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
+
+                                      <img src={tour1}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
                                   </div>
 
-                                  <div className="relative flex flex-col items-center">
-                                    <h1 className="font-poppins text-fontColor text-xl">
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
                                       Place Name
                                     </h1>
-                                    <p className="text-white font-poppins top-2">
+
+                                    <p className="text-white font-poppins">
                                       Place discription, overview and history.
                                     </p>
+
                                   </div>
 
                         </div>
 
-                        <div className="relative xl:w-[600px] xl:h-[300px] bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center">
 
-                                  <div className="h-[280px] overflow-hidden w-[300px] shrink-0
-                                                  rounded-xl m-2">
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
 
-                                    <img src={tour2} alt="" 
-                                      className="flex w-full h-full hover:scale-125 
-                                      transition-all duration-500 ease-in-out 
-                                      cursor-pointer"/>
+                                      <img src={tour2}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
                                   </div>
 
-                                  <div className="relative flex flex-col items-center">
-                                    <h1 className="font-poppins text-fontColor text-xl">
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
                                       Place Name
                                     </h1>
-                                    <p className="text-white font-poppins top-2">
+
+                                    <p className="text-white font-poppins">
                                       Place discription, overview and history.
                                     </p>
+
                                   </div>
 
                         </div>
 
-                        <div className="relative xl:w-[600px] xl:h-[300px] bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center">
 
-                                  <div className="h-[280px] overflow-hidden w-[300px] shrink-0
-                                                  rounded-xl m-2">
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
 
-                                    <img src={tour3} alt="" 
-                                      className="flex w-full h-full hover:scale-125 
-                                      transition-all duration-500 ease-in-out 
-                                      cursor-pointer"/>
+                                      <img src={tour3}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
                                   </div>
 
-                                  <div className="relative flex flex-col items-center">
-                                    <h1 className="font-poppins text-fontColor text-xl">
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
                                       Place Name
                                     </h1>
-                                    <p className="text-white font-poppins top-2">
+
+                                    <p className="text-white font-poppins">
                                       Place discription, overview and history.
                                     </p>
+
                                   </div>
 
                         </div>
 
-                        <div className="relative xl:w-[600px] xl:h-[300px] bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl ml-3 flex flex-row items-center">
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center">
 
-                                  <div className="h-[280px] overflow-hidden w-[300px] shrink-0
-                                                  rounded-xl m-2">
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
 
-                                    <img src={tour} alt="" 
-                                      className="flex w-full h-full hover:scale-125 
-                                      transition-all duration-500 ease-in-out 
-                                      cursor-pointer"/>
+                                      <img src={tour}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
                                   </div>
 
-                                  <div className="relative flex flex-col items-center">
-                                    <h1 className="font-poppins text-fontColor text-xl">
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
                                       Place Name
                                     </h1>
-                                    <p className="text-white font-poppins top-2">
+
+                                    <p className="text-white font-poppins">
                                       Place discription, overview and history.
                                     </p>
+
                                   </div>
 
                         </div>
@@ -118,7 +138,7 @@ const LandingTour = () => {
                     </div>
 
                 </div>
-          </div>
+
 
       </div>
   )
