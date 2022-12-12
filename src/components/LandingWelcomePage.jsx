@@ -179,7 +179,7 @@ const LandingWelcomePage = () => {
                                   </h1>
                                   <h1 className="text-sm font-poppins text-white hover:scale-110 hover:-translate-y-1
                                                 transition-all duration-300 ease-in-out cursor-pointer" 
-                                     onClick={() => {navigate('/signup')}}>
+                                     onClick={() => navigate('/landingsignup')}>
                                     Click here!
                                   </h1>
                                 </div>
@@ -291,8 +291,8 @@ const LandingWelcomePage = () => {
                                     Don't have an account?
                                   </h1>
                                   <a className="md:text-base text-xs font-poppins text-white hover:scale-110 hover:-translate-y-1
-                                                transition-all duration-300 ease-in-out" 
-                                     href="/signup">
+                                                transition-all duration-300 ease-in-out cursor-pointer" 
+                                     onClick={() => navigate('/landingsignup')}>
                                     Click here!
                                   </a>
                                 </div>
@@ -334,10 +334,6 @@ const LandingWelcomePage = () => {
                           onClick={() => setToggle((prev) => !prev)}
                         >Login here!
                       </h1>              
-
-
-
-
 
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"  
                           className={`${toggle ? 'hover-icon-landing' : 'normal-icon-landing'} flex items-center cursor-pointer`}

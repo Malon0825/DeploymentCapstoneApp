@@ -16,7 +16,7 @@ const Welcome = () => {
   const [requestDoc, setReqDoc] = useState()
   const [toggle, setToggle] = useState()
   const [error, setError] = useState()
-  const [findDoc, setFindDoc] = useState()
+  const [emailTab, setEmailTab] = useState()
   const [navbar, setNavbar] = useState(false)
   const [docuRef, setDocuRef] = useState()
   let navigate = useNavigate()
@@ -97,7 +97,7 @@ const Welcome = () => {
 
     <div className="relative w-full">
 
-              <div className={`${navbar ? 'flex' : 'hidden'} flex-col items-center justify-center gap-3 font-poppins absolute z-50 w-[150px] h-[250px] bg-navbar
+              <div className={`${navbar ? 'flex' : 'hidden'} flex-col items-center justify-center gap-3 font-poppins absolute z-50 w-[150px] h-[280px] bg-navbar
                               text-white sm:top-32 md:top-20 top-12 sm:right-20 right-10 rounded-2xl border-fontColor border-2 sidebar bg-opacity-9 cursor-pointer`}>
 
                               <a onClick={() => navigate('/home')}>Home</a>
@@ -105,6 +105,7 @@ const Welcome = () => {
                               <a onClick={() => navigate('/activity')}>Activities</a>
                               <a onClick={() => navigate('/tour')}>Tour</a>
                               <a onClick={() => navigate('/profile')}>Profile</a>
+                              <a onClick={() => navigate('/profile')}>Feedback</a>
                               <a onClick={handleLogOut}>Logout</a>                     
 
 
@@ -199,7 +200,21 @@ const Welcome = () => {
                 </div>
 
 
-              <div className="flex h-auto absolute md:right-20 right-14">
+              <div className="flex flex-row gap-5 h-auto absolute md:right-20 right-14">
+
+                        <button onClick={() => setEmailTab((prev) => !prev)}
+                                className="relative md:flex hidden overflow-hidden bg-gray-700 justify-center items-center rounded-full
+                                            h-14 w-14 hover:-translate-y-3 hover:scale-110 transition-all duration-500 ease-in-out">
+
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                                        className="hover:scale-125 text-[50px] hover:text-fontColor text-lg
+                                                    transition-all duration-500 ease-in-out font-bold
+                                                    cursor-pointer">
+                                    <path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                              </svg>  
+
+                        </button>
+
                         <button onClick={() => setToggle((prev) => !prev)}
                                 className={`${toggle ? 'bg-gray-700 -translate-y-3 scale-110' : 'bg-navbar'} rounded-full md:h-14 md:w-14 h-10 w-10 flex items-center justify-center
                                               transition-all duration-500 ease-linear relative`}>
@@ -211,11 +226,13 @@ const Welcome = () => {
                                   </svg>
                         </button>
 
+
+
               </div>
 
               <div className="md:flex hidden h-auto absolute right-0">
 
-                        <a href='/profile' 
+                        <a onClick={() => navigate('/profile')}
                           className="relative flex overflow-hidden bg-gray-700 justify-center items-center rounded-full
                                       h-14 w-14 hover:-translate-y-3 hover:scale-110 transition-all duration-500 ease-in-out">
 

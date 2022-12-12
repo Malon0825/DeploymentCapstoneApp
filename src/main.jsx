@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                   <Route path="/" element={<LandingPage />} />
 
-                  <Route path="/signup" element={<Signup />} /> 
+                  <Route path="/landingsignup" element={<Signup />} /> 
 
                   <Route path="/landingactivities" element={<LandingActivities />} /> 
 
