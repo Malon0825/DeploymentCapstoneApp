@@ -17,7 +17,6 @@ const LandingWelcomePage = () => {
   const [resetLaoding, setResetLoading] = useState(false)
   const [resetTab, setResetTab] = useState()
   const [message, setMessage] = useState()
-  const [toggleLogin, setToggleLogin] = useState()
   
   const [navbar, setNavbar] = useState(false)
 
@@ -57,11 +56,6 @@ const LandingWelcomePage = () => {
 
     setResetLoading(false)
   }
-
-  useEffect(() => {
-
-
-  })
 
 
   return (

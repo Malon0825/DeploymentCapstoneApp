@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { sign_up_bg } from './assets'
 import { useNavigate } from 'react-router'
 import { getFirestore, addDoc, collection } from 'firebase/firestore'
@@ -18,6 +18,8 @@ const Signup = () => {
   const [laoding, setLoading] = useState(false)
   const [dropDownAdd, setDropDownAdd] = useState()
   const [address, setAddress] = useState()
+  const [page, setPage] = useState()
+
   
   let navigate = useNavigate()
 
@@ -41,7 +43,7 @@ const Signup = () => {
       setLoading(true)
       setError("")
 
-      auth.createUserWithEmailAndPassword(emailRef.current.value, passRef.current.value).then(cred => {
+      await auth.createUserWithEmailAndPassword(emailRef.current.value, passRef.current.value).then(cred => {
 
         return addDoc(colRef, {
           userId: cred.user.uid,
@@ -52,15 +54,24 @@ const Signup = () => {
           userAddress: address,
           userRequest: ''
         })
-
+        
       })
+      
     }
     catch{
       setError('Failed to create an account')
     }
+    setPage(true)
     setLoading(false)
-    navigate("/home")
   }
+
+  useEffect(() => {
+
+    if(page == true){
+      navigate('/home')
+    }
+  })
+
 
   const purokNames = [
     "Purok Maki-angayon",
@@ -82,32 +93,43 @@ const Signup = () => {
 
       </div>
 
-      <div className="z-20 bg-none rounded-2xl w-[1000px] h-[600px] flex bg-navbar bg-opacity-60
+      <div className="z-20 bg-none rounded-2xl sm:w-[1000px] sm:h-[600px] h-[620px] flex sm:bg-navbar sm:bg-opacity-60
                       flex-row overflow-hidden drop-shadow-xl">
 
-        <div className="bg-green-300 h-full w-[500px] overflow-hidden">
+        <div className="bg-green-300 h-full w-[500px] overflow-hidden sm:flex hidden">
 
           <img className="h-full w-full hover:scale-125 hover:translate-x-10
                           transition-all duration-500 ease-in-out 
                           cursor-pointer" 
                           src={sign_up_bg} alt="" />
         </div>
+        
 
-        <div className="w-[500px] h-full flex justify-center items-center">
+        <div className="sm:w-[500px] flex flex-col items-center">
 
-             <div className="w-[400px] h-[500px] flex justify-center items-center
-                          flex-col relative gap-10">
+            <div className="sm:hidden w-[200px] flex justify-center text-center relative sm:top-0 top-[25px]
+                             bg-primary rounded-3xl bg-opacity-80">
 
-                <div className="w-full flex justify-center">
+                <h1 className="font-poppins text-2xl font-semibold text-fontColor
+                                relative m-5">
+                  Sign Up
+                </h1>
+
+            </div>
+
+             <div className="sm:w-[400px] sm:h-[500px] w-full flex justify-center items-center
+                          flex-col relative gap-10 m-5">
+
+                <div className="w-full mt-10 sm:flex hidden justify-center">
 
                     <h1 className="font-poppins text-2xl font-semibold text-fontColor
-                                    relative top-5">
+                                    relative mt-5">
                       Sign Up
                     </h1>
 
                 </div>
                             
-                <div className=" flex flex-row gap-4 w-full justify-center">
+                <div className=" flex flex-row gap-4 w-full items-center rounded-2xl justify-center bg-primary bg-opacity-95 sm:bg-transparent h-[420px]">
 
                     <div className="shrink-0 flex gap-7 flex-col">
 
@@ -191,8 +213,7 @@ const Signup = () => {
                       <input className="sign-up-input-tab-1" type="contact" ref={userContactRef} required />
 
                       <label className="sign-up-input-tab cursor-pointer flex items-center relative" htmlFor=""
-                              onPointerEnter={() => setDropDownAdd(true)}
-                              onPointerLeave={() => setDropDownAdd(false)}>
+                              onClick={() => setDropDownAdd((prev) => !prev)}>
 
                               <h1>{address}</h1>
                               <h1 className={`${dropDownAdd ? "absolute" : "hidden"} sidebar flex flex-col bottom-9 bg-navbar
@@ -216,7 +237,8 @@ const Signup = () => {
                       {error}
                 </div>  
 
-                <div className="w-full flex flex-row gap-4 justify-center">
+                <div className="sm:w-full w-[280px] sm:h-auto h-16 items-center flex flex-row gap-4 justify-center sm:bg-transparent 
+                                bg-opacity-80 bg-primary rounded-3xl relative sm:top-0 top-[-45px]">
 
                   <div className="w-24 h-10 flex items-center bg-slate-800
                                   justify-center rounded-2xl hover:scale-110

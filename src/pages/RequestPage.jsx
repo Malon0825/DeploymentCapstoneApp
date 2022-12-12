@@ -247,7 +247,7 @@ const RequestPage = () => {
               <Navbar />
         </aside>
 
-        <aside className="md:hidden w-full sticky top-0 z-10 bg-primary">
+        <aside className="md:hidden w-full sticky top-0 z-20 bg-primary">
               <Welcome />
         </aside>
 
@@ -300,10 +300,10 @@ const RequestPage = () => {
         <div className="relative flex w-screen">
 
           <form ref={form} onSubmit={sendEmail}
-                className={`${toggleClear ? 'flex' : 'hidden'} absolute w-full h-full z-10 items-center justify-center
-                                           sidebar bg-primary bg-opacity-50`}>
+                className={`${toggleClear ? 'flex' : 'hidden'} absolute w-full h-full z-10 justify-center
+                                           sideba bg-opacity-50`}>
 
-            <div className="relative w-[700px] h-[500px] bg-primary border-2 border-fontColor rounded-2xl">
+            <div className="absolute sm:w-[700px] sm:h-[500px] w-[380px] bg-primary border-2 border-fontColor rounded-2xl sm:top-48">
 
                 <button className="absolute right-5 top-5 h-10 w-10 rounded-full bg-slate-700 font-poppins text-2xl
                                     text-fontColor hover:bg-fontColor hover:text-white transition-all duration-300
@@ -312,15 +312,15 @@ const RequestPage = () => {
                   X
                 </button> 
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col items-center gap-2">
 
-                    <label className="w-max relative m-14 font-poppins text-fontColor text-2xl font-semibold">
+                    <label className="w-max bg-blue-300 relative m-14 font-poppins text-fontColor text-2xl font-semibold">
                       Barangay Clearance
                     </label>  
 
                     <div className="flex relative w-full h-full justify-center gap-8">
 
-                      <div className="flex flex-col gap-11">
+                      <div className="sm:flex hidden flex-col gap-11">
 
                           <label className="request-text"                 htmlFor="">Name</label>                 
                           <label className="request-text relative top-2"  htmlFor="">Email</label>        
@@ -328,10 +328,15 @@ const RequestPage = () => {
 
                       </div>
 
-                      <div className="flex flex-col gap-10">
-                        
-                          <input className="request-input-tab" type="name"    name="userName"     placeholder="  Real name is required otherwise not valid..!"    required />
+                      <div className="flex flex-col sm:gap-10 gap-2">
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Name</label> 
+                          <input className="request-input-tab" type="name"    name="userName"     placeholder="  Real name is required!"    required />
+
+                          <label className="request-text sm:hidden flex"  htmlFor="">Email</label>
                           <input className="request-input-tab" type="email"   name="userEmail"    placeholder="  sample@gmail.com"                                required />
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Purok Address</label>
                           <input className="request-input-tab" type="address" name="userAddress"  placeholder="  Purok Sample"                                    required />
 
                       </div>

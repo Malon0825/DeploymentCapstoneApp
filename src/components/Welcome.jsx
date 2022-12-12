@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuth } from '../context/AuthContext'
 import { getFirestore, getDoc, doc, query, where, collection, onSnapshot } from 'firebase/firestore'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
 
@@ -12,17 +12,19 @@ const Welcome = () => {
   const [userId, setUserID] = useState()
   const { currentUserId } = useAuth()
   const [profile, setProfile] = useState()
-  const [userFound, setUserFound] = useState(true)
+  const [userFound, setUserFound] = useState(false)
   const [requestDoc, setReqDoc] = useState()
   const [toggle, setToggle] = useState()
-  const [content, setContent] = useState()
-
+  const [error, setError] = useState()
+  const [findDoc, setFindDoc] = useState()
   const [navbar, setNavbar] = useState(false)
+  const [docuRef, setDocuRef] = useState()
   let navigate = useNavigate()
   const { logout } = useAuth()
 
   const db = getFirestore()
-  
+
+  useEffect(() => {
 
   const colRef = collection(db, 'users')
   const q = query(colRef, where("userId", "==", currentUserId))
@@ -37,22 +39,21 @@ const Welcome = () => {
         const userId = user.id
         const strUserId = userId.toString()
         setUserID(strUserId) 
+
+        setUserFound(true)
       })
-      if (userFound === true) {
-        userData()
-      }
+
       
     })
 
   })
 
+  })
+  useEffect(() => {
 
-  function userData(){
+    if (userFound == true) {
 
-    const docRef = doc(db, 'users', userId)
-
-    if (userFound === true) {
-
+        const docRef = doc(db, 'users', userId)
         getDoc(docRef).then(function(doc) {
 
             if (doc.exists) {
@@ -73,13 +74,13 @@ const Welcome = () => {
                 console.log("No such document!");
             }
         }).catch(function(error) {
-            console.log("Error getting document:", error)
+
         })
     }
 
     setUserFound(false)
   
-  }
+  })
 
   async function handleLogOut() {
     setError('')
@@ -104,7 +105,7 @@ const Welcome = () => {
                               <a onClick={() => navigate('/activity')}>Activities</a>
                               <a onClick={() => navigate('/tour')}>Tour</a>
                               <a onClick={() => navigate('/profile')}>Profile</a>
-                              <a onClick={() => handleLogOut}>Logout</a>                     
+                              <a onClick={handleLogOut}>Logout</a>                     
 
 
               </div>

@@ -11,6 +11,7 @@ const Navbar = () => {
   const [hover_Tour, setTour] = useState(false);
   const [hover_Log, setLog] = useState(false);
   const { logout } = useAuth()
+  const [error, setError] = useState()
   let navigate = useNavigate()
 
   async function handleLogOut() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Navbar, Welcome } from '../components'
 import { useAuth } from '../context/AuthContext'
 import { getFirestore, getDoc, doc, query, where, collection, onSnapshot } from 'firebase/firestore'
@@ -15,13 +15,12 @@ const ProfilePage = () => {
   const [userContactNum, setUserContactNum] = useState()
   const [userAddress, setUserAddress] = useState()
   const [profile, setProfile] = useState()
-  const [userFound, setUserFound] = useState(true)
+  const [userFound, setUserFound] = useState(false)
 
   const [userRequest, setUserRequest] = useState()
   
 
   const db = getFirestore()
-  
 
   const colRef = collection(db, 'users')
   const q = query(colRef, where("userId", "==", currentUserId))
@@ -30,60 +29,64 @@ const ProfilePage = () => {
     let users = []
     snapshot.docs.forEach((doc) => {
       users.push({ ...doc.data(), id: doc.id})
-    })
-    
-    users.map((user) => {
-        setUserID(user.id)
-        console.log(userId)
 
-        if (userFound === true) {
-            userData()
-        }
-        
+      users.map((user) => {
+
+        const userId = user.id
+        const strUserId = userId.toString()
+        setUserID(strUserId) 
+        setUserFound(true)
+      })
+
+      
     })
-    
+
   })
 
 
-  function userData(){
+  useEffect(() => {
 
-    const docRef = doc(db, 'users', userId)
+    if (userFound == true) {
+        const docRef = doc(db, 'users', userId)
+        getDoc(docRef).then(function(doc) {
 
-    getDoc(docRef).then(function(doc) {
-        if (doc.exists) {
-
-            const user_name = doc.data().userName
-            setUserName(user_name)
-            const fisrtLetter = Array.from(userName)[0]
-            const upperCase = fisrtLetter.toUpperCase()
-            setProfile(upperCase)
-
-            const user_email = doc.data().userEmail
-            setUserEmail(user_email)
-
-            const user_status = doc.data().userStatus
-            setUserStatus(user_status)
-
-            const user_contact_num = doc.data().userCotactNum
-            setUserContactNum(user_contact_num)
-
-            const user_address = doc.data().userAddress
-            setUserAddress(user_address)
-
-
-            const user_request = doc.data("Barangay Cedula")
-            setUserRequest(user_request)
-            console.log(userRequest)
-            setUserFound(false)
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
+            if (doc.exists) {
+              
+              const user_name = doc.data().userName
+              setUserName(user_name)
+              const fisrtLetter = Array.from(userName)[0]
+              const upperCase = fisrtLetter.toUpperCase()
+              setProfile(upperCase)
   
-  }
+              const user_email = doc.data().userEmail
+              setUserEmail(user_email)
+  
+              const user_status = doc.data().userStatus
+              setUserStatus(user_status)
+  
+              const user_contact_num = doc.data().userCotactNum
+              setUserContactNum(user_contact_num)
+  
+              const user_address = doc.data().userAddress
+              setUserAddress(user_address)
+  
+  
+              const user_request = doc.data("Barangay Cedula")
+              setUserRequest(user_request)
+
+
+                
+            } else {
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error)
+        })
+    }
+
+    setUserFound(false)
+  
+  })
 
 
   return (
