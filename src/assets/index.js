@@ -7,6 +7,9 @@ import tour1 from "./Tour1.jpg"
 import tour2 from "./Tour2.jpg"
 import tour3 from "./Tour3.jpg"
 import sign_up_bg from "./sign-up-bg-new.png"
+import intro_bg from "./IntroBg.png"
+import intro_bg_2 from "./IntroBg_2.png"
+import intro_bg_3 from "./IntroBg_3.png"
 
 
 
@@ -18,5 +21,8 @@ export {logo,
         tour1,
         tour2,
         tour3,
-        sign_up_bg
+        sign_up_bg,
+        intro_bg,
+        intro_bg_2,
+        intro_bg_3
         };

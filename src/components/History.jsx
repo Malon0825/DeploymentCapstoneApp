@@ -12,7 +12,7 @@ const History = () => {
             <div className="h-24 w-72 flex items-center flex-row-reverse group">
 
                 <div className="relative h-[85px] w-[270px] left-[-20px] rounded-xl
-                              bg-slate-700 bg-opacity-25 z-10 flex items-center
+                              bg-slate-700 bg-opacity-25 z-0 flex items-center
                                 group-hover:bg-slate-700 transition-all
                                 duration-300 ease-in-out">
 
@@ -26,7 +26,7 @@ const History = () => {
 
                 </div>
 
-                <div className="h-[85px] w-[130px] z-30 rounded-full bg-primary flex items-center">
+                <div className="h-[85px] w-[130px] z-0 rounded-full bg-primary flex items-center">
 
                       <a href='https://www.instagram.com/'
                               className="h-20 w-20 rounded-full border-[9px] border-fontColor

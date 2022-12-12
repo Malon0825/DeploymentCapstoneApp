@@ -6,7 +6,7 @@ import App from './App'
 import { AuthProvider } from './context/AuthContext'
 import './index.css'
 
-import Signup from './Signup'
+import Signup from './pages/Signup'
 import RequestPage from './pages/RequestPage'
 import ActivityPage from './pages/ActivityPage'
 import TourPage from './pages/TourPage'

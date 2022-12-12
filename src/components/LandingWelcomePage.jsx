@@ -287,10 +287,10 @@ const LandingWelcomePage = () => {
 
                                 <div className="absolute bottom-3 left-3 flex flex-row gap-2">
 
-                                  <h1 className="md:text-md text-xs font-poppins text-fontColor ">
+                                  <h1 className="md:text-base text-xs font-poppins text-fontColor ">
                                     Don't have an account?
                                   </h1>
-                                  <a className="md:text-md text-xs font-poppins text-white hover:scale-110 hover:-translate-y-1
+                                  <a className="md:text-base text-xs font-poppins text-white hover:scale-110 hover:-translate-y-1
                                                 transition-all duration-300 ease-in-out" 
                                      href="/signup">
                                     Click here!
