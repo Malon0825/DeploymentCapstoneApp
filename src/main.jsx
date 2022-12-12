@@ -6,7 +6,7 @@ import App from './App'
 import { AuthProvider } from './context/AuthContext'
 import './index.css'
 
-import Signup from './pages/Signup'
+import Signup from './components/Signup'
 import RequestPage from './pages/RequestPage'
 import ActivityPage from './pages/ActivityPage'
 import TourPage from './pages/TourPage'
@@ -16,7 +16,7 @@ import PrivateRoute from './components/PrivateRoute'
 import LandingPage from './LandingPage'
 import LandingActivities from './components/LandingActivities'
 import LandingTour from './components/LandingTour'
-import LoginPage from './pages/LoginPage'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -29,8 +29,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Switch>
 
                   <Route path="/" element={<LandingPage />} />
-
-                  <Route path="/login" element={<LoginPage />} />
 
                   <Route path="/signup" element={<Signup />} /> 
 

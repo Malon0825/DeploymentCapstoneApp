@@ -46,7 +46,7 @@ const LandingPage = () => {
                         </h2>
 
 
-                        <button className="bg-slate-700 mt-10 md:text-3xl text-xl font-poppins font-medium text-fontColor md:w-52 md:h-12 w-44 h-10 rounded-lg
+                        <button className="bg-slate-700 md:mt-2 mt-10 md:text-3xl text-xl font-poppins font-medium text-fontColor md:w-52 md:h-12 w-44 h-10 rounded-lg
                                           hover:bg-fontColor hover:scale-110 hover:font-semibold hover:text-slate-700 transition-all duration-500 ease-in-out"
                                           onClick={() => setThirdGetStart(false)}>
                               I'm in!

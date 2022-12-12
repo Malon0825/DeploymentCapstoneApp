@@ -7,8 +7,9 @@ import Tour from "./Tour";
 import History from "./History";
 import LandingWelcomePage from "./LandingWelcomePage";
 import LandingNavbar from "./LandingNavbar";
-import LandingActivities from "./LandingActivities"
+import LandingActivities from "./LandingActivities";
 import LandingTour from "./LandingTour";
+import Signup from "./Signup";
 
 
 export {Navbar,
@@ -22,4 +23,5 @@ export {Navbar,
         LandingNavbar,
         LandingActivities,
         LandingTour,
+        Signup,
         };
