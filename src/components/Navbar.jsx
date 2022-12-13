@@ -88,7 +88,6 @@ const Navbar = () => {
 
                         <li className="navbar-text">
                           <a onClick={() => navigate('/activity')}
-                          href='/activity'
                                     onPointerEnter={() => setAct (true)}
                                     onPointerLeave={() => setAct (false)}
                           >Activities</a>

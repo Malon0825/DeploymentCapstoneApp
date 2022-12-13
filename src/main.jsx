@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute'
 import LandingPage from './LandingPage'
 import LandingActivities from './components/LandingActivities'
 import LandingTour from './components/LandingTour'
+import EmailPage from './pages/EmailPage'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -38,6 +39,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                   <Route path='/home' element={<PrivateRoute/>}>
                         <Route exact path='/home' element={<App/>}/>
+                  </Route>  
+
+                  <Route path='/emailpage' element={<PrivateRoute/>}>
+                        <Route exact path='/emailpage' element={<EmailPage/>}/>
                   </Route>  
 
                   <Route path='/request' element={<PrivateRoute/>}>

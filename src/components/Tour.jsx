@@ -1,7 +1,12 @@
 import React from 'react'
 import { tour, tour1, tour2 } from '../assets'
+import { useNavigate } from 'react-router'
 
 const Tour = () => {
+
+  let navigate = useNavigate()
+
+  
   return (
     <div className="relative sm:w-[55vw] w-screen">
 
@@ -13,11 +18,11 @@ const Tour = () => {
                 <a className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
                                 transition-all duration-3000 cursor-pointer
                               hover:text-fontColor ease-in-out"
-                    href='/landingtour'
+                    onClick={() => (navigate('/tour'))}
                   >Explore our place
                 </a>
 
-                <a href='/landingtour'
+                <a onClick={() => (navigate('/tour'))}
                    className="sm:flex absolute hidden right-0 text-lg font-poppins text-white 
                                   hover:text-fontColor transition-all ease-in-out
                                   duration-300"

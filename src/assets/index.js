@@ -10,6 +10,9 @@ import sign_up_bg from "./sign-up-bg-new.png"
 import intro_bg from "./IntroBg.png"
 import intro_bg_2 from "./IntroBg_2.png"
 import intro_bg_3 from "./IntroBg_3.png"
+import email_bg from "./EmailBg.png"
+import email_bg_1 from "./EmailBg_1.png"
+import email_bg_2 from "./EmailBg_2.png"
 
 
 
@@ -24,5 +27,8 @@ export {logo,
         sign_up_bg,
         intro_bg,
         intro_bg_2,
-        intro_bg_3
+        intro_bg_3,
+        email_bg,
+        email_bg_1,
+        email_bg_2
         };

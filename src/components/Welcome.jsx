@@ -16,9 +16,8 @@ const Welcome = () => {
   const [requestDoc, setReqDoc] = useState()
   const [toggle, setToggle] = useState()
   const [error, setError] = useState()
-  const [emailTab, setEmailTab] = useState()
   const [navbar, setNavbar] = useState(false)
-  const [docuRef, setDocuRef] = useState()
+
   let navigate = useNavigate()
   const { logout } = useAuth()
 
@@ -105,7 +104,7 @@ const Welcome = () => {
                               <a onClick={() => navigate('/activity')}>Activities</a>
                               <a onClick={() => navigate('/tour')}>Tour</a>
                               <a onClick={() => navigate('/profile')}>Profile</a>
-                              <a onClick={() => navigate('/profile')}>Feedback</a>
+                              <a onClick={() => navigate('/emailpage')}>Feedback</a>
                               <a onClick={handleLogOut}>Logout</a>                     
 
 
@@ -184,6 +183,7 @@ const Welcome = () => {
                                     transition-all duration-500 hover:bg-gray-700
                                     rounded-lg cursor-none hover:scale-x-110
                                   hover:text-fontColor ease-in-out"
+                        onClick={() => navigate('/home')}
                       >Hello {userName}
                     </h1>
                   </div>
@@ -202,7 +202,7 @@ const Welcome = () => {
 
               <div className="flex flex-row gap-5 h-auto absolute md:right-20 right-14">
 
-                        <button onClick={() => setEmailTab((prev) => !prev)}
+                        <button onClick={() => navigate('/emailpage')}
                                 className="relative md:flex hidden overflow-hidden bg-gray-700 justify-center items-center rounded-full
                                             h-14 w-14 hover:-translate-y-3 hover:scale-110 transition-all duration-500 ease-in-out">
 

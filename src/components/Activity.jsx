@@ -1,12 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
 import dayjs from 'dayjs'
+import { useNavigate } from 'react-router'
 import { generateDate, months } from '../constants/Calendar'
 import cn from '../constants/CN'
 
 
 // Main Function
 const Activity = () => {
+
+    
+  let navigate = useNavigate()
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
@@ -22,9 +26,9 @@ const Activity = () => {
       <div className="md:mt-0 mt-6 sm:ml-20 sm:mr-20 lg:ml-10 lg:mr-10 mr-10 ml-10 flex flex-col sm:gap-0 gap-6 relative xl:items-start items-end">
 
           <a className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
-                                transition-all duration-3000
+                                transition-all duration-3000 cursor-pointer
                               hover:text-fontColor ease-in-out"
-              href='/activity'>
+              onClick={() => (navigate('/activity'))}>
             Activities
           </a>
 

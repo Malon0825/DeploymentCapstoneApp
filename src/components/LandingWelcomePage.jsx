@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router'
 
@@ -312,6 +312,8 @@ const LandingWelcomePage = () => {
                                     transition-all duration-500 hover:bg-gray-700
                                     rounded-lg cursor-none hover:scale-x-110
                                   hover:text-fontColor ease-in-out"
+                        onClick={() => navigate('/')}
+                        
                       >Welcome to Esperanza
                     </h1>
                   </div>

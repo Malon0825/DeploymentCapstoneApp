@@ -17,8 +17,9 @@ const LandingRequestTab = () => {
                 <div className="relative sm:top-2">
 
                       <div className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
-                                      transition-all duration-300
-                                    hover:text-fontColor ease-in-out">
+                                      transition-all duration-300 cursor-pointer
+                                    hover:text-fontColor ease-in-out"
+                           onClick={() => setToggle((prev) => !prev)}>
                         Make a request
                       </div>
 

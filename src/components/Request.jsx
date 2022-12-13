@@ -20,7 +20,7 @@ const Request = () => {
                 <div className="relative sm:top-2">
 
                       <a className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
-                                      transition-all duration-300
+                                      transition-all duration-300 cursor-pointer
                                     hover:text-fontColor ease-in-out"
                           onClick={() => navigate("/request")}>
                         Make a request
