@@ -19,7 +19,7 @@ const Request = () => {
 
                 <div className="relative sm:top-2">
 
-                      <a className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
+                      <a className="sm:text-white text-fontColor text-xl xl:text-2xl font-poppins
                                       transition-all duration-300 cursor-pointer
                                     hover:text-fontColor ease-in-out"
                           onClick={() => navigate("/request")}>
@@ -32,15 +32,6 @@ const Request = () => {
                                   rounded-2xl">
                   
                   <div className="relative mt-2 ml-2 rounded-lg xs:w-[235px] xs:h-[235px] w-[135px] h-[135px] overflow-hidden shrink-0">
-
-                      <div className={`${toggle ? 'toggleOn' : 'toggleOff'} absolute z-30 w-full h-full bg-navbar bg-opacity-90
-                           rounded-lg border-fontColor border-2 sidebar items-center justify-center`}>
-
-                            <h1 className="font-poppins text-fontColor text-center xs:text-2xl text-xs font-medium">
-                              Please login first..!
-                            </h1>
-                              
-                      </div>
 
                       <img src={clearance} alt="Barangay Clearance Photo" 
                       className="flex absolute w-full h-full hover:scale-125 
@@ -71,17 +62,11 @@ const Request = () => {
                         <div className="flex flex-row xs:absolute bottom-8 md:bottom-2">
 
                           <button className="text-white bg-fontColor font-poppins rounded-xl
-                                              hover:bg-slate-700 hover:text-fontColor transition-all relative sm:left-5
-                                              duration-300 ease-in-out lg:w-52 sm:w-44 w-24 sm:text-xl text-sm"
-                                  onClick={() => setToggle((prev) => !prev)}
+                                              hover:bg-slate-700 hover:text-fontColor transition-all relative
+                                              duration-300 ease-in-out xl:w-44 sm:w-36 w-24 sm:text-lg xl:text-xl text-sm"
+                                  onClick={() => navigate("/request")}
                             >View detail
                           </button>
-                          
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                            class="xs:flex hidden w-10 h-10 mx-8 cursor-pointer hover:bg-slate-700 rounded-lg hover:scale-110 
-                                  hover:stroke-fontColor transition-all duration-500 ease-linear">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                          </svg>
 
                         </div>
 

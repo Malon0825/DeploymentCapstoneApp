@@ -72,7 +72,7 @@ const Navbar = () => {
                       <ul className="flex flex-col gap-16 cursor-pointer">
 
                         <li className="navbar-text">
-                          <a onClick={() => navigate('/home')}
+                          <a onClick={() => navigate("/home")}
                                      onPointerEnter={() => setHover (true)}
                                      onPointerLeave={() => setHover (false)}
                             >Home</ a> 
@@ -80,21 +80,21 @@ const Navbar = () => {
 
                         <li className="navbar-text">
                           
-                          <a onClick={() => navigate('/request')}
+                          <a onClick={() => navigate("/request")}
                                      onPointerEnter={() => setReq (true)}
                                      onPointerLeave={() => setReq (false)}
                             >Request</a>
                         </li>
 
                         <li className="navbar-text">
-                          <a onClick={() => navigate('/activity')}
+                          <a onClick={() => navigate("/activity")}
                                     onPointerEnter={() => setAct (true)}
                                     onPointerLeave={() => setAct (false)}
                           >Activities</a>
                         </li>
 
                         <li className="navbar-text">
-                          <a onClick={() => navigate('/tour')}
+                          <a onClick={() => navigate("/tour")}
                                     onPointerEnter={() => setTour (true)}
                                     onPointerLeave={() => setTour (false)}
                           >Tour</a>
@@ -106,7 +106,7 @@ const Navbar = () => {
 
                     </div>
 
-                    <div className="absolute flex flex-row bottom-12">
+                    <div className="absolute flex flex-row left-[60px] bottom-12">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
                       className={`${hover_Log ? 'hover-text' : 'navbar-icon'} mr-4`}>

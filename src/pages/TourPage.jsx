@@ -1,8 +1,12 @@
 import React from 'react'
 import { tour1, tour2, tour3, tour } from '../assets'
 import { Navbar, Welcome } from '../components'
+import { useNavigate } from 'react-router-dom'
 
 const TourPage = () => {
+
+  let navigate = useNavigate()
+
   return (
 
     <div className="relative flex md:flex-row flex-col w-full bg-primary">
@@ -31,86 +35,9 @@ const TourPage = () => {
 
                     <div className="relative md:mt-20 grid lg:grid-cols-2 lg:grid-rows-2 gap-14 cursor-pointer xl:ml-28 justify-center lg:m-10">
 
-                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl flex flex-row items-center">
-
-                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
-                                                  rounded-xl m-2 shrink-0">
-
-                                      <img src={tour1}
-                                            className="flex w-full h-full hover:scale-125 
-                                            transition-all duration-500 ease-in-out 
-                                            cursor-pointer"/>
-                                  </div>
-
-                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
-
-                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
-                                      Place Name
-                                    </h1>
-
-                                    <p className="text-white font-poppins">
-                                      Place discription, overview and history.
-                                    </p>
-
-                                  </div>
-
-                        </div>
-
-                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl flex flex-row items-center">
-
-                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
-                                                  rounded-xl m-2 shrink-0">
-
-                                      <img src={tour2}
-                                            className="flex w-full h-full hover:scale-125 
-                                            transition-all duration-500 ease-in-out 
-                                            cursor-pointer"/>
-                                  </div>
-
-                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
-
-                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
-                                      Place Name
-                                    </h1>
-
-                                    <p className="text-white font-poppins">
-                                      Place discription, overview and history.
-                                    </p>
-
-                                  </div>
-
-                        </div>
-
-                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl flex flex-row items-center">
-
-                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
-                                                  rounded-xl m-2 shrink-0">
-
-                                      <img src={tour3}
-                                            className="flex w-full h-full hover:scale-125 
-                                            transition-all duration-500 ease-in-out 
-                                            cursor-pointer"/>
-                                  </div>
-
-                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
-
-                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
-                                      Place Name
-                                    </h1>
-
-                                    <p className="text-white font-poppins">
-                                      Place discription, overview and history.
-                                    </p>
-
-                                  </div>
-
-                        </div>
-
-                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
-                                        bg-opacity-25 rounded-xl flex flex-row items-center">
+                      <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center" 
+                              onClick={() => (navigate("/barangayesperanza"))}>
 
                                   <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
                                                   rounded-xl m-2 shrink-0">
@@ -124,7 +51,89 @@ const TourPage = () => {
                                   <div className="relative flex flex-col text-center gap-1 sm:m-1">
 
                                     <h1 className="font-poppins text-fontColor sm:text-2xl">
-                                      Place Name
+                                     Barangay Esperanza
+                                    </h1>
+
+                                    <p className="text-white font-poppins">
+                                      Place discription, overview and history.
+                                    </p>
+
+                                  </div>
+
+                        </div>
+
+
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center"
+                              onClick={() => (navigate("/highschool"))}>
+
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
+
+                                      <img src={tour1}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
+                                  </div>
+
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
+                                      Esperanza National High School
+                                    </h1>
+
+                                    <p className="text-white font-poppins">
+                                      Place discription, overview and history.
+                                    </p>
+
+                                  </div>
+
+                        </div>
+
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center"
+                              onClick={() => (navigate("/barangayplaza"))}>
+
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
+
+                                      <img src={tour2}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
+                                  </div>
+
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
+                                      Barangay Plaza
+                                    </h1>
+
+                                    <p className="text-white font-poppins">
+                                      Place discription, overview and history.
+                                    </p>
+
+                                  </div>
+
+                        </div>
+
+                        <div className="relative sm:h-[300px] sm:w-[500px] w-80 h-48 bg-slate-700 gap-2
+                                        bg-opacity-25 rounded-xl flex flex-row items-center" 
+                              onClick={() => (navigate("/elementaryschool"))}>
+
+                                  <div className="h-44 w-40 sm:w-[250px] sm:h-[285px] overflow-hidden
+                                                  rounded-xl m-2 shrink-0">
+
+                                      <img src={tour3}
+                                            className="flex w-full h-full hover:scale-125 
+                                            transition-all duration-500 ease-in-out 
+                                            cursor-pointer"/>
+                                  </div>
+
+                                  <div className="relative flex flex-col text-center gap-1 sm:m-1">
+
+                                    <h1 className="font-poppins text-fontColor sm:text-2xl">
+                                      Esperanza Elementary School
                                     </h1>
 
                                     <p className="text-white font-poppins">

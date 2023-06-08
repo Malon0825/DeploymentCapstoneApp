@@ -18,6 +18,10 @@ import LandingActivities from './components/LandingActivities'
 import LandingTour from './components/LandingTour'
 import EmailPage from './pages/EmailPage'
 
+import BrgyEsp from './constants/BrgyEsp'
+import BrgyHall from './constants/BrgyHall'
+import EES from './constants/EES'
+import ENHS from './constants/ENHS'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -36,6 +40,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   <Route path="/landingactivities" element={<LandingActivities />} /> 
 
                   <Route path="/landingtour" element={<LandingTour />} /> 
+
+                  <Route path="/highschool" element={<ENHS />} /> 
+
+                  <Route path="/elementaryschool" element={<EES />} /> 
+
+                  <Route path="/barangayplaza" element={<BrgyHall />} /> 
+
+                  <Route path="/barangayesperanza" element={<BrgyEsp />} /> 
 
                   <Route path='/home' element={<PrivateRoute/>}>
                         <Route exact path='/home' element={<App/>}/>

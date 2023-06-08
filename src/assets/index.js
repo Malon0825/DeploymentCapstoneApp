@@ -13,7 +13,8 @@ import intro_bg_3 from "./IntroBg_3.png"
 import email_bg from "./EmailBg.png"
 import email_bg_1 from "./EmailBg_1.png"
 import email_bg_2 from "./EmailBg_2.png"
-
+import ENCHS_1 from "./ENCHS_1.png"
+import ENCHS_2 from "./ENCHS_2.png"
 
 
 export {logo,  
@@ -30,5 +31,7 @@ export {logo,
         intro_bg_3,
         email_bg,
         email_bg_1,
-        email_bg_2
+        email_bg_2,
+        ENCHS_1,
+        ENCHS_2
         };

@@ -99,13 +99,13 @@ const Welcome = () => {
               <div className={`${navbar ? 'flex' : 'hidden'} flex-col items-center justify-center gap-3 font-poppins absolute z-50 w-[150px] h-[280px] bg-navbar
                               text-white sm:top-32 md:top-20 top-12 sm:right-20 right-10 rounded-2xl border-fontColor border-2 sidebar bg-opacity-9 cursor-pointer`}>
 
-                              <a onClick={() => navigate('/home')}>Home</a>
-                              <a onClick={() => navigate('/request')}>Request</a>
-                              <a onClick={() => navigate('/activity')}>Activities</a>
-                              <a onClick={() => navigate('/tour')}>Tour</a>
-                              <a onClick={() => navigate('/profile')}>Profile</a>
-                              <a onClick={() => navigate('/emailpage')}>Feedback</a>
-                              <a onClick={handleLogOut}>Logout</a>                     
+                              <h1 onClick={() => navigate('/home')}>Home</h1>
+                              <h1 onClick={() => navigate('/request')}>Request</h1>
+                              <h1 onClick={() => navigate('/activity')}>Activities</h1>
+                              <h1 onClick={() => navigate('/tour')}>Tour</h1>
+                              <h1 onClick={() => navigate('/profile')}>Profile</h1>
+                              <h1 onClick={() => navigate('/emailpage')}>Feedback</h1>
+                              <h1 onClick={handleLogOut}>Logout</h1>                     
 
 
               </div>
@@ -139,7 +139,6 @@ const Welcome = () => {
                                           </div>             
 
                                           <h1 className = "flex flex-row gap-1">
-
                                                 <span className="text-fontColor">Date:</span>
                                                 <span className="text-white">{req.date}</span>
 

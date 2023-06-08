@@ -1,5 +1,5 @@
 import React from 'react'
-import { LandingNavbar, LandingWelcomePage, History } from "./components"
+import { LandingNavbar, LandingWelcomePage } from "./components"
 import LandingRequestTab from './pages/LandingRequestTab'
 import LandingActivitiesTab from './pages/LandingActivitiesTab'
 import LandingTourTab from './pages/LandingTourTab'
@@ -123,7 +123,7 @@ const LandingPage = () => {
       </div>
 
 
-      <aside className="h-screen sticky top-0">
+      <aside className="h-screen sticky top-0 z-20">
             <LandingNavbar />
       </aside>
 
@@ -147,9 +147,6 @@ const LandingPage = () => {
                   <div className="flex sm:flex-row flex-col xl:gap-14 gap-0 justify-center w-full">
                         <div>
                               <LandingTourTab />
-                        </div>
-                        <div>
-                              <History />
                         </div>
                   </div>
             </div>

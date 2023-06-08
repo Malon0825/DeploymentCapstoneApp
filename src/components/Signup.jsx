@@ -80,6 +80,8 @@ const Signup = () => {
     "Purok Paraiso",
     "Purok New Society",
     "Purok Matamis",
+    "Purok Osmena",
+    "Purok Roxas",
   ]
 
   return (

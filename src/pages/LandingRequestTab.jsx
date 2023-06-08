@@ -16,7 +16,7 @@ const LandingRequestTab = () => {
 
                 <div className="relative sm:top-2">
 
-                      <div className="sm:text-white text-fontColor sm:text-2xl text-xl font-poppins
+                      <div className="sm:text-white text-fontColor xl:text-2xl text-xl font-poppins
                                       transition-all duration-300 cursor-pointer
                                     hover:text-fontColor ease-in-out"
                            onClick={() => setToggle((prev) => !prev)}>
@@ -68,17 +68,12 @@ const LandingRequestTab = () => {
                         <div className="flex flex-row xs:absolute bottom-8 md:bottom-2">
 
                           <button className="text-white bg-fontColor font-poppins rounded-xl
-                                              hover:bg-slate-700 hover:text-fontColor transition-all relative sm:left-5
-                                              duration-300 ease-in-out lg:w-52 sm:w-44 w-24 sm:text-xl text-sm"
+                                              hover:bg-slate-700 hover:text-fontColor transition-all relative
+                                              duration-300 ease-in-out xl:w-44 sm:w-36 w-24 sm:text-lg xl:text-xl text-sm"
                                   onClick={() => setToggle((prev) => !prev)}
                             >View detail
                           </button>
                           
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                            class="xs:flex hidden w-10 h-10 mx-8 cursor-pointer hover:bg-slate-700 rounded-lg hover:scale-110 
-                                  hover:stroke-fontColor transition-all duration-500 ease-linear">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                          </svg>
 
                         </div>
 

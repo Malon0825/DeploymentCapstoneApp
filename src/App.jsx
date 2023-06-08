@@ -32,11 +32,11 @@ const App = () => {
                               </div>
                         </div>
             
-                        <div className="flex sm:flex-row flex-col xl:gap-14 gap-0 justify-center w-full">
-                              <div>
+                        <div className="relative flex sm:flex-row flex-col xl:gap-14 w-full">
+                              <div className="">
                                     <Tour />
                               </div>
-                              <div>
+                              <div className="lg:flex absolute hidden right-10">
                                     <History />
                               </div>
                         </div>
