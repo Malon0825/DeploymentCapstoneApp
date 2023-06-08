@@ -8,6 +8,7 @@ import { getFirestore, getDoc, doc, query, where, collection, onSnapshot, update
 
 const RequestPage = () => {
 
+  const [isChecked, setIsChecked] = useState(false);
   const [userId, setUserID] = useState()
   const { currentUserId } = useAuth()
 
@@ -17,12 +18,14 @@ const RequestPage = () => {
   const [reqClearance, setClearance] = useState(false)
   const [reqResidency, setResidency] = useState(false)
   const [reqCertificate, setCertificate] = useState(false)
+  const [reqMulDoc, setMulDoc] = useState(false)
 
 
   const [date, setDate] = useState()
   const [time, setTime] = useState()
   const [credType, setCredType] = useState()
   const [requestTime, setRequestTime] = useState(false)
+
   
   const form = useRef()
 
@@ -64,6 +67,22 @@ const RequestPage = () => {
       }); 
       e.target.reset()
   };
+
+  const sendMulDocEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_1g19nsi', 'template_s94515n', form.current, 'VV5VcT-KmR6FqT3GP')
+          .then((result) => {
+              userData()
+              setToggleMessage(true)        
+              setToggleClear(false)
+    
+          }, (error) => {
+              console.log(error.text);
+          }); 
+          e.target.reset()
+      };
+    
 
   //Request Date
   const dateToday = () => {
@@ -141,6 +160,13 @@ const RequestPage = () => {
     "November",
     "December"
   ]
+  
+
+
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
 
 
@@ -157,7 +183,7 @@ const RequestPage = () => {
               <Welcome />
         </aside>
 
-        <div className={`${toggleMessage ? 'flex' : 'hidden'} absolute w-full h-full z-10 items-center justify-center
+        <div className={`${toggleMessage ? 'flex' : 'hidden'} absolute w-full h-full z-30 items-center justify-center
                                            sidebar bg-primary bg-opacity-50`}>
 
             <div className="relative w-[500px] h-[300px] bg-primary border-2 border-fontColor rounded-2xl">
@@ -180,8 +206,9 @@ const RequestPage = () => {
                     </div>
 
                     <p className="text-white font-poppins text-xl">
-                      Please wait for our message and <br/>
-                      prepar a valid Identification Card<br/>
+                      Please check your email account,<br/>
+                      wait for our message, and <br/>
+                      prepar a valid Identification Card (ID)<br/>
                       to claim your requested credential<br/>
                       in our Barangay Hall.
                     </p>
@@ -206,7 +233,7 @@ const RequestPage = () => {
         <div className="relative flex w-screen">
 
           <form ref={form} onSubmit={sendEmail}
-                className={`${reqClearance ? 'flex' : 'hidden'} absolute w-full h-full z-10 justify-center
+                className={`${reqClearance ? 'flex' : 'hidden'} absolute w-full h-full z-20 justify-center
                                            sideba bg-opacity-50`}>
 
             <div className="absolute sm:w-[700px] sm:h-[880px] w-[380px] bg-primary border-2 border-fontColor rounded-2xl sm:top-48">
@@ -221,7 +248,7 @@ const RequestPage = () => {
                 <div className="flex flex-col items-center gap-2">
 
                     <label className="w-max relative m-14 font-poppins text-fontColor text-2xl font-semibold">
-                      Credentials Reqeust Form
+                      Credentials Request Form
                     </label>  
 
                     <div className="flex relative w-full h-full justify-center gap-8">
@@ -246,7 +273,7 @@ const RequestPage = () => {
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Barangay Clearance">Barangay Clearance</option>
                           </select>
-
+                
                           <label className="request-text sm:hidden flex"                 htmlFor="">Name</label> 
                           <input className="request-input-tab" type="name"    name="userName"     placeholder="  Real name is required!"    required />
 
@@ -256,7 +283,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Status</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userStatus" id="status" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Married">Married</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -266,7 +293,7 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Age</label>
-                          <input className="request-input-tab" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
+                          <input className="request-input-tab no-spinners" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purpose</label>
                           <input className="request-input-tab" type="text"   name="userPurpose"    placeholder="  State the purpose"          required />
@@ -274,7 +301,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purok Address</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userAddress" id="userAddress" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Purok Maki-angayon">Purok Maki-angayon</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -294,7 +321,7 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Count</label>
-                          <input className="request-input-tab" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
+                          <input className="request-input-tab no-spinners" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
 
 
                       </div>
@@ -324,7 +351,7 @@ const RequestPage = () => {
           </form>
 
           <form ref={form} onSubmit={sendEmail}
-                className={`${reqResidency ? 'flex' : 'hidden'} absolute w-full h-full z-10 justify-center
+                className={`${reqResidency ? 'flex' : 'hidden'} absolute w-full h-full z-20 justify-center
                                            sideba bg-opacity-50`}>
 
             <div className="absolute sm:w-[700px] sm:h-[880px] w-[380px] bg-primary border-2 border-fontColor rounded-2xl sm:top-48">
@@ -339,7 +366,7 @@ const RequestPage = () => {
                 <div className="flex flex-col items-center gap-2">
 
                     <label className="w-max relative m-14 font-poppins text-fontColor text-2xl font-semibold">
-                      Credentials Reqeust Form
+                      Credentials Request Form
                     </label>  
 
                     <div className="flex relative w-full h-full justify-center gap-8">
@@ -374,7 +401,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Status</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userStatus" id="status" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Married">Married</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -384,7 +411,7 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Age</label>
-                          <input className="request-input-tab" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
+                          <input className="request-input-tab no-spinners" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purpose</label>
                           <input className="request-input-tab" type="text"   name="userPurpose"    placeholder="  State the purpose"          required />
@@ -392,7 +419,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purok Address</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userAddress" id="userAddress" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Purok Maki-angayon">Purok Maki-angayon</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -412,7 +439,7 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Count</label>
-                          <input className="request-input-tab" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
+                          <input className="request-input-tab no-spinners" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
 
 
                       </div>
@@ -442,7 +469,7 @@ const RequestPage = () => {
           </form>
 
           <form ref={form} onSubmit={sendEmail}
-                className={`${reqCertificate ? 'flex' : 'hidden'} absolute w-full h-full z-10 justify-center
+                className={`${reqCertificate ? 'flex' : 'hidden'} absolute w-full h-full z-20 justify-center
                                            sideba bg-opacity-50`}>
 
             <div className="absolute sm:w-[700px] sm:h-[880px] w-[380px] bg-primary border-2 border-fontColor rounded-2xl sm:top-48">
@@ -457,7 +484,7 @@ const RequestPage = () => {
                 <div className="flex flex-col items-center gap-2">
 
                     <label className="w-max relative m-14 font-poppins text-fontColor text-2xl font-semibold">
-                      Credentials Reqeust Form
+                      Credentials Request Form
                     </label>  
 
                     <div className="flex relative w-full h-full justify-center gap-8">
@@ -492,7 +519,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Status</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userStatus" id="status" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Married">Married</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -502,7 +529,7 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Age</label>
-                          <input className="request-input-tab" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
+                          <input className="request-input-tab no-spinners" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purpose</label>
                           <input className="request-input-tab" type="text"   name="userPurpose"    placeholder="  State the purpose"          required />
@@ -510,7 +537,7 @@ const RequestPage = () => {
                           <label className="request-text sm:hidden flex"                 htmlFor="">Purok Address</label>
                           <select className="request-dropdown-input-tab cursor-pointer" name="userAddress" id="userAddress" required>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
-                                    value="">None</option>
+                                    value="">Default</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
                                     value="Purok Maki-angayon">Purok Maki-angayon</option>
                             <option className="text-slate-300 font-poppins text-lg bg-primary" 
@@ -530,29 +557,197 @@ const RequestPage = () => {
                           </select>
 
                           <label className="request-text sm:hidden flex"                 htmlFor="">Count</label>
-                          <input className="request-input-tab" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
-                          {/* <button className="request-dropdown-input-tab  z cursor-pointer flex items-center relative" name="userAddress" htmlFor="" value="Purok Address"
-                                  onClick={() => setDropDownAdd((prev) => !prev)}>
+                          <input className="request-input-tab no-spinners" type="number" min="1"  name="userCopies"    placeholder="  Number of copies"          required />
 
-                                  {address}
-                                  <h1 className={`${dropDownAdd ? "absolute" : "hidden"} sidebar flex flex-col bottom-9 bg-navbar
-                                                                  border-2 border-fontColor rounded-xl bg-opacity-80 w-full`}>
-                                      {purokNames.map((names, index) => {
-
-                                          return <li className="relative m-3" 
-                                                    onClick={() => setAddress(names)}>
-                                                      {names}
-                                                </li>
-                                      })}                                
-                                  </h1>
-
-                          </button> */}
 
                       </div>
 
                     </div> 
 
                     <div className="flex justify-center relative m-8">
+
+                        <button className="relativ w-32 h-10 bg-slate-700 rounded-full font-poppins
+                                           text-xl text-fontColor font-semibold hover:bg-fontColor
+                                           hover:text-white hover:scale-105 transition-all duration-300
+                                           ease-in-out"
+                                type="submit">
+                          Submit
+                        </button>         
+                    
+                    </div>  
+
+
+                </div>
+
+
+            </div>
+
+
+
+          </form>
+
+          <form ref={form} onSubmit={sendMulDocEmail}
+                className={`${reqMulDoc ? 'flex' : 'hidden'} absolute w-full h-full z-20 justify-center
+                                           sideba bg-opacity-50`}>
+
+            <div className="absolute sm:w-[700px] sm:h-[880px] w-[380px] bg-primary border-2 border-fontColor rounded-2xl sm:top-48">
+
+                <button className="absolute right-5 top-5 h-10 w-10 rounded-full bg-slate-700 font-poppins text-2xl
+                                    text-fontColor hover:bg-fontColor hover:text-white transition-all duration-300
+                                    ease-in-out"
+                        onClick={() => setMulDoc(false)}>
+                  X
+                </button> 
+
+                <div className="flex flex-col items-center gap-2">
+
+                    <label className="sm:w-max w-auto relative m-14 font-poppins text-fontColor text-2xl font-semibold">
+                      Multiple Credentials Request Form
+                    </label>  
+
+                    <div className="flex relative w-full h-full justify-center gap-8">
+
+                      <div className="sm:flex hidden flex-col gap-11">
+
+                          <label className="request-text relative"                 htmlFor="">Type of<br></br>Document</label> 
+                          <label className="request-text relative top-[60px]"                 htmlFor="">Name</label>                 
+                          <label className="request-text relative top-[62px]"                 htmlFor="">Email</label> 
+                          <label className="request-text relative top-[64px]"                 htmlFor="">Status</label>  
+                          <label className="request-text relative top-[68px]"                 htmlFor="">Age</label>  
+                          <label className="request-text relative top-[70px]"                 htmlFor="">Purpose</label>         
+                          <label className="request-text relative top-[70px]"                 htmlFor="">Purok<br></br>Address</label>      
+ 
+
+                      </div>
+
+                      <div className="flex flex-col sm:gap-10 gap-2">
+                        
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Type of Document</label>
+
+                          <div className="flex flex-col gap-4">
+
+                                <div className="flex flex-row gap-2">
+
+                                        <div className="bg-fontColor bg-opacity-20 rounded-md w-max">
+                                                <input type="checkbox" name="Certificate" id="Certificate" value="Barangay Certificate"/>
+                                                <label className="text-white font-poppins text-lg cursor-pointer" htmlFor="Certificate"> Barangay Certificate</label>                                                  
+                                        </div>
+
+                                        <div>
+                                                <label className="request-text text-lg" htmlFor="cerCopy">Copies </label>   
+                                                <input className="no-spinners w-10 bg-fontColor bg-opacity-20 rounded-md
+                                                                 focus:bg-slate-500 focus:text-white focus:bg-opacity-5
+                                                                 text-white font-poppins text-center" 
+                                                        id="cerCopy" type="number" min="1"  name="cerCopy"/>                                              
+                                        </div>
+
+
+                                                                            
+                                </div>
+
+                                <div className="flex flex-row gap-2">
+
+                                        <div className="bg-fontColor bg-opacity-20 rounded-md w-max">
+                                                <input type="checkbox" name="Residency" id="Residency" value="Barangay Residency"/>
+                                                <label className="text-white font-poppins text-lg cursor-pointer" htmlFor="Residency"> Barangay Residency</label>                                                  
+                                        </div>
+
+                                        <div>
+                                                <label className="request-text text-lg" htmlFor="resCopy">Copies </label>   
+                                                <input className="no-spinners w-10 bg-fontColor bg-opacity-20 rounded-md
+                                                                 focus:bg-slate-500 focus:text-white focus:bg-opacity-5
+                                                                 text-white font-poppins text-center" 
+                                                        id="resCopy" type="number" min="1"  name="resCopy" />                                              
+                                        </div>
+
+
+                                                                            
+                                </div>
+
+                                <div className="flex flex-row gap-2">
+
+                                        <div className="bg-fontColor bg-opacity-20 rounded-md w-max">
+                                                <input type="checkbox" name="Clearance" id="Clearance" value="Barangay Clearance"/>
+                                                <label className="text-white font-poppins text-lg cursor-pointer" htmlFor="Clearance"> Barangay Clearance</label>                                                  
+                                        </div>
+
+                                        <div>
+                                                <label className="request-text text-lg" htmlFor="clearCopy">Copies </label>   
+                                                <input className="no-spinners w-10 bg-fontColor bg-opacity-20 rounded-md
+                                                                 focus:bg-slate-500 focus:text-white focus:bg-opacity-5
+                                                                 text-white font-poppins text-center" 
+                                                        id="clearCopy" type="number" min="1"  name="clearCopy" />                                              
+                                        </div>
+
+
+                                                                            
+                                </div>
+
+  
+                          </div>
+
+
+                          {/* <label className="request-text">
+                                <input
+                                type="checkbox"
+
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                                />
+                                {isChecked ? 'Checked' : 'Unchecked'}
+                          </label> */}
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Name</label> 
+                          <input className="request-input-tab" type="name"    name="userName"     placeholder="  Real name is required!"    required />
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Email</label>
+                          <input className="request-input-tab" type="email"   name="userEmail"    placeholder="  sample@gmail.com"          required />
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Status</label>
+                          <select className="request-dropdown-input-tab cursor-pointer" name="userStatus" id="status" required>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="">Default</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Married">Married</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Single">Single</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Annualled">Annualled</option>
+                          </select>
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Age</label>
+                          <input className="request-input-tab no-spinners" type="number" min="1"   name="userAge"    placeholder="  Exact age is required!"          required />
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Purpose</label>
+                          <input className="request-input-tab" type="text"   name="userPurpose"    placeholder="  State the purpose"          required />
+
+                          <label className="request-text sm:hidden flex"                 htmlFor="">Purok Address</label>
+                          <select className="request-dropdown-input-tab cursor-pointer" name="userAddress" id="userAddress" required>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="">Default</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Maki-angayon">Purok Maki-angayon</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Pag-asa">Purok Pag-asa</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Luzviminda">Purok Luzviminda</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Paraiso">Purok Paraiso</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok New Society">Purok New Society</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Matamis">Purok Matamis</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Osmena">Purok Osmena</option>
+                            <option className="text-slate-300 font-poppins text-lg bg-primary" 
+                                    value="Purok Roxas">Purok Roxas</option>
+                          </select>
+
+                      </div>
+
+                    </div> 
+
+                    <div className="flex justify-center relative mt-6">
 
                         <button className="relativ w-32 h-10 bg-slate-700 rounded-full font-poppins
                                            text-xl text-fontColor font-semibold hover:bg-fontColor
@@ -688,6 +883,42 @@ const RequestPage = () => {
 
                         </div>              
                     </div>
+
+                    
+                    <div className="relative flex flex-col gap-8 items-center sm:items-start">
+
+                        <h1 className="text-white sm:text-xl font-poppins
+                                      transition-all duration-3000 cursor-pointer
+                                    hover:text-fontColor ease-in-out">
+                          Request Multiple Documents
+                        </h1>
+
+                        <div className="relative lg:w-[400px] xl:w-[500px] sm:w-[500px] w-72 sm:h-[173px] h-36 bg-slate-700 
+                                        bg-opacity-25 rounded-xl sm:ml-3 flex flex-row items-center">
+
+
+
+                              <div className="flex relative rounded-lg sm:h-[150px] h-[120px] left-3
+                                              overflow-hidden sm:w-[200px] w-36">
+
+                                  <img src={clearance} alt="Barangay Clearance Photo" 
+                                  className="flex absolute w-full h-full hover:scale-125 
+                                  transition-all duration-500 ease-in-out
+                                  cursor-pointer"/>
+
+                              </div>
+
+                              <button className="relative text-white bg-fontColor font-poppins sm:h-20 h-28 sm:w-40 w-28 rounded-2xl
+                                                hover:bg-slate-700 hover:text-fontColor transition-all xl:ml-16 lg:ml-6 sm:ml-20 ml-5
+                                                text-xl font-semibold only:duration-300 ease-in-out"
+                                      onClick={() => setMulDoc(true)}>
+                                                  Request
+
+                              </button>
+
+                        </div>              
+                    </div>
+
 
 
 

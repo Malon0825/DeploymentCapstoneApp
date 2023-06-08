@@ -39,7 +39,7 @@ const Navbar = () => {
 
                     </div>
 
-                    <div className="flex mt-16">
+                    <div className="flex mt-10 lg:mt-16">
 
                       <div className="flex flex-col gap-12">
 

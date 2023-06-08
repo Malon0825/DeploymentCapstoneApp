@@ -8,15 +8,15 @@ import { useState } from 'react'
 
 const LandingPage = () => {
 
-      const [firstGetStart, setFirstGetStart] = useState(true)
-      const [secGetStart, setSecGetStart] = useState(true)
-      const [thirdGetStart, setThirdGetStart] = useState(true)
+      // const [firstGetStart, setFirstGetStart] = useState(true)
+      // const [secGetStart, setSecGetStart] = useState(true)
+      // const [thirdGetStart, setThirdGetStart] = useState(true)
 
   return (
     
     <div className="relative flex w-full bg-primary">
 
-      <div className={`${thirdGetStart ? 'flex' : 'hidden'} absolute z-50 w-full h-full bg-primary bg-opacity-80 overflow-hidden`}>
+      {/* <div className={`${thirdGetStart ? 'flex' : 'hidden'} absolute z-50 w-full h-full bg-primary bg-opacity-80 overflow-hidden`}>
 
             <div className={`${thirdGetStart ? 'flex' : 'hidden'} h-screen w-screen justify-center items-center bg-primary bg-opacity-50`}>
 
@@ -120,7 +120,7 @@ const LandingPage = () => {
              
             </div>
 
-      </div>
+      </div> */}
 
 
       <aside className="h-screen sticky top-0 z-20">

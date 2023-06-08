@@ -1,5 +1,5 @@
 import React from 'react'
-import { tour, tour1, tour2 } from '../assets'
+import { tour, tour1, tour2, ESP_2, ENCHS_1, Brgy_Hall_2, EES_4 } from '../assets'
 import { useNavigate } from 'react-router'
 
 const Tour = () => {
@@ -36,7 +36,7 @@ const Tour = () => {
                               <div className="lg:h-[250px] xs:h-[200px] h-[150px] overflow-hidden
                                               rounded-xl m-2">
 
-                                <img src={tour} alt="" 
+                                <img src={Brgy_Hall_2} alt="" 
                                   className="flex w-full h-full hover:scale-125 
                                   transition-all duration-500 ease-in-out 
                                   cursor-pointer"/>
@@ -54,9 +54,7 @@ const Tour = () => {
                                   <p className="text-slate-400 font-poppins sm:text-sm text-xs
                                                   hover:text-slate-300 ease-linear
                                                   transition-all duration-300 overflow-hidden">
-                                    Our plaza is one of the most safest place from young
-                                    hunters. We implement strong rules against lolicons
-                                    in our place.
+                                    Barangay Esperanza Plaza is a beacon of hope for its citizens, offering a central hub for accessing important government programs and services. This community space is designed to make it easy for residents to get the support they need, when they need it. 
                                   </p>
 
                               </div>
@@ -75,7 +73,7 @@ const Tour = () => {
                               <div className="lg:h-[250px] xs:h-[200px] h-[150px] overflow-hidden
                                               rounded-xl m-2">
 
-                                <img src={tour2} alt="" 
+                                <img src={ENCHS_1} alt="" 
                                   className="flex w-full h-full hover:scale-125 
                                   transition-all duration-500 ease-in-out 
                                   cursor-pointer"/>
@@ -93,9 +91,7 @@ const Tour = () => {
                                   <p className="text-slate-400 font-poppins sm:text-sm text-xs
                                                   hover:text-slate-300 ease-linear
                                                   transition-all duration-300 overflow-hidden">
-                                    Our plaza is one of the most safest place from young
-                                    hunters. We implement strong rules against lolicons
-                                    in our place.
+                                    Esperanza National High School is a picturesque educational institution that offers students a lush, green, and welcoming environment to learn and grow in. 
                                   </p>
 
                               </div>
@@ -114,7 +110,7 @@ const Tour = () => {
                                               rounded-xl m-2">
 
 
-                                <img src={tour1} alt="" 
+                                <img src={EES_4} alt="" 
                                   className="flex w-full h-full hover:scale-125 
                                   transition-all duration-500 ease-in-out 
                                   cursor-pointer"/>
@@ -132,9 +128,7 @@ const Tour = () => {
                                   <p className="text-slate-400 font-poppins sm:text-sm text-xs
                                                   hover:text-slate-300 ease-linear
                                                   transition-all duration-300 overflow-hidden">
-                                    Our plaza is one of the most safest place from young
-                                    hunters. We implement strong rules against lolicons
-                                    in our place.
+                                    Esperanza Elementary School is a gem of an educational institution, where nature and leadership come together in perfect harmony. With an abundance of trees, flowers, and green grass, Esperanza Elementary provides an idyllic and serene environment for its students to learn and grow in. 
                                   </p>
 
                               </div>

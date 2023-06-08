@@ -36,7 +36,7 @@ const App = () => {
                               <div className="">
                                     <Tour />
                               </div>
-                              <div className="lg:flex absolute hidden right-10">
+                              <div className="sm:flex absolute hidden right-10">
                                     <History />
                               </div>
                         </div>

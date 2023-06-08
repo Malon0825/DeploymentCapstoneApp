@@ -104,7 +104,6 @@ const Welcome = () => {
                               <h1 onClick={() => navigate('/activity')}>Activities</h1>
                               <h1 onClick={() => navigate('/tour')}>Tour</h1>
                               <h1 onClick={() => navigate('/profile')}>Profile</h1>
-                              <h1 onClick={() => navigate('/emailpage')}>Feedback</h1>
                               <h1 onClick={handleLogOut}>Logout</h1>                     
 
 
@@ -201,7 +200,7 @@ const Welcome = () => {
 
               <div className="flex flex-row gap-5 h-auto absolute md:right-20 right-14">
 
-                        <button onClick={() => navigate('/emailpage')}
+                        {/* <button onClick={() => navigate('/emailpage')}
                                 className="relative md:flex hidden overflow-hidden bg-gray-700 justify-center items-center rounded-full
                                             h-14 w-14 hover:-translate-y-3 hover:scale-110 transition-all duration-500 ease-in-out">
 
@@ -212,7 +211,7 @@ const Welcome = () => {
                                     <path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
                               </svg>  
 
-                        </button>
+                        </button> */}
 
                         <button onClick={() => setToggle((prev) => !prev)}
                                 className={`${toggle ? 'bg-gray-700 -translate-y-3 scale-110' : 'bg-navbar'} rounded-full md:h-14 md:w-14 h-10 w-10 flex items-center justify-center
